@@ -2,7 +2,7 @@ from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated
 
 from courses.models import Lesson
-from courses.permissions import IsOwner, IsModerator
+from users.permissions import IsOwner, IsModerator
 from courses.serializers.lesson import LessonSerializer
 
 

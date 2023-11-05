@@ -3,7 +3,7 @@ from rest_framework.filters import OrderingFilter
 from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated
 
-from courses.permissions import IsOwner, IsModerator
+from users.permissions import IsOwner, IsModerator
 from wallet.models import Payment
 from wallet.serializers import PaymentSerializer
 
