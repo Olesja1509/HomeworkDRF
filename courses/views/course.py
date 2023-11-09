@@ -8,11 +8,13 @@ from courses.serializers.course import CourseSerializer
 
 
 class CourseViewSet(viewsets.ModelViewSet):
+    """ViewSet для модели курса"""
     serializer_class = CourseSerializer
     queryset = Course.objects.all()
     pagination_class = CoursesPaginator
 
     def get_permissions(self):
+        """Права доступа для модели курса"""
         permission_classes = [IsAuthenticated, IsOwner | IsModerator]
         if self.action == 'list':
             permission_classes = [IsAuthenticated, IsOwner | IsModerator]

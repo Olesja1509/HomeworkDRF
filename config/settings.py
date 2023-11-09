@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_simplejwt',
     'django_filters',
+    'drf_yasg',
+    'corsheaders',
+
     'users',
     'courses',
     'wallet',
@@ -52,6 +55,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -147,3 +151,18 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.AllowAny',
     ]
 }
+
+
+CORS_ALLOWED_ORIGINS = [
+    "https://read-only.example.com",
+    "https://read-and-write.example.com",
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://read-and-write.example.com",
+]
+
+# CORS_ALLOW_ALL_ORIGINS = False
+
+STRIPE_SECRET_KEY = \
+    'sk_test_51O9t42Djb7AEK7RxF6UVcthdmkMgT4BsK5XCMBmP53gLbA9jPq6fDWYWpNddJGlixWFrZ5KRC1QGAkYAagmrZlgw00RgXzc68i'

@@ -13,6 +13,7 @@ from users.permissions import IsOwner
 
 
 class SubscriptionCreateAPIView(generics.CreateAPIView):
+    """APIView для создания подписки"""
 
     serializer_class = SubscriptionSerializer
     queryset = Subscription.objects.all()
@@ -20,6 +21,7 @@ class SubscriptionCreateAPIView(generics.CreateAPIView):
 
 
 class SubscriptionDestroyAPIView(generics.DestroyAPIView):
+    """APIView для удаления подписки"""
 
     queryset = Subscription.objects.all()
     permission_classes = [IsAuthenticated, IsOwner]

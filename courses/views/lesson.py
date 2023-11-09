@@ -8,6 +8,7 @@ from courses.serializers.lesson import LessonSerializer
 
 
 class LessonCreateAPIView(generics.CreateAPIView):
+    """APIView для создания урока"""
     serializer_class = LessonSerializer
     permission_classes = [IsAuthenticated]
 
@@ -18,6 +19,7 @@ class LessonCreateAPIView(generics.CreateAPIView):
 
 
 class LessonListAPIView(generics.ListAPIView):
+    """APIView для просмотра списка уроков"""
     serializer_class = LessonSerializer
     queryset = Lesson.objects.all()
     permission_classes = [IsAuthenticated, IsOwner | IsModerator]
@@ -33,17 +35,20 @@ class LessonListAPIView(generics.ListAPIView):
 
 
 class LessonRetrieveAPIView(generics.RetrieveAPIView):
+    """APIView для получения просмотра урока"""
     serializer_class = LessonSerializer
     queryset = Lesson.objects.all()
     permission_classes = [IsAuthenticated, IsOwner | IsModerator]
 
 
 class LessonUpdateAPIView(generics.UpdateAPIView):
+    """APIView для редактирования урока"""
     serializer_class = LessonSerializer
     queryset = Lesson.objects.all()
     permission_classes = [IsAuthenticated, IsOwner | IsModerator]
 
 
 class LessonDestroyAPIView(generics.DestroyAPIView):
+    """APIView для удаления урока"""
     queryset = Lesson.objects.all()
     permission_classes = [IsAuthenticated, IsOwner]
