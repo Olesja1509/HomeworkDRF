@@ -18,6 +18,10 @@ drf-yasg = "^1.21.7"
 django-cors-headers = "^4.3.0"
 requests = "^2.31.0"
 stripe = "^7.3.0"
+celery = "^5.3.5"
+eventlet = "^0.33.3"
+redis = "^5.0.1"
+django-celery-beat = "^2.5.0"
 
 
 [build-system]

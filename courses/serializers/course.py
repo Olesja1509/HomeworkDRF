@@ -2,7 +2,7 @@ from rest_framework import serializers
 
 from courses.models import Course, Lesson, Subscription
 from courses.serializers.lesson import LessonSerializer
-from courses.serializers.subscription import SubscriptionSerializer
+from courses.tasks import send_email_course_update
 
 
 class CourseSerializer(serializers.ModelSerializer):
@@ -16,6 +16,10 @@ class CourseSerializer(serializers.ModelSerializer):
 
     def get_is_subscribed(self, course):
         return Subscription.objects.filter(course=course, user=self.context['request'].user).exists()
+
+    def save(self, **kwargs):
+        send_email_course_update.delay(id)
+        return super().save(**kwargs)
 
     class Meta:
         model = Course

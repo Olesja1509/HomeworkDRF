@@ -6,12 +6,6 @@ from courses.serializers.subscription import SubscriptionSerializer
 from users.permissions import IsOwner
 
 
-# class SubscriptionViewSet(viewsets.ModelViewSet):
-#     serializer_class = SubscriptionSerializer
-#     queryset = Subscription.objects.all()
-#     permission_classes = [IsAuthenticated]
-
-
 class SubscriptionCreateAPIView(generics.CreateAPIView):
     """APIView для создания подписки"""
 
