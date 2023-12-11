@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
+import os
 from datetime import timedelta
 from pathlib import Path
 
@@ -85,9 +86,10 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'homeworkdrf',
+        'NAME': 'shelterdocker',
         'USER': 'postgres',
-        'PASSWORD': 'max1313'
+        'PASSWORD': 'mysecretpassword',
+        'HOST': 'db'
     }
 }
 
@@ -137,8 +139,8 @@ LOGIN_URL = '/users/'
 
 EMAIL_HOST = 'smtp.yandex.ru'
 EMAIL_PORT = 465
-EMAIL_HOST_USER = 'fuckup@oscarbot.ru'
-EMAIL_HOST_PASSWORD = 'AsTSNVv7pun9'
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 EMAIL_USE_SSL = True
 
 MEDIA_URL = '/media/'
@@ -171,8 +173,7 @@ CSRF_TRUSTED_ORIGINS = [
 
 # CORS_ALLOW_ALL_ORIGINS = False
 
-STRIPE_SECRET_KEY = \
-    'sk_test_51O9t42Djb7AEK7RxF6UVcthdmkMgT4BsK5XCMBmP53gLbA9jPq6fDWYWpNddJGlixWFrZ5KRC1QGAkYAagmrZlgw00RgXzc68i'
+STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY')
 
 # Настройки для Celery
 
