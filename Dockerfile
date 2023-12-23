@@ -19,5 +19,3 @@ COPY pyproject.toml .
 RUN poetry install
 
 COPY . .
-
-ENTRYPOINT python manage.py migrate & python manage.py runserver
