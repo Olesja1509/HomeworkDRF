@@ -86,9 +86,9 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'shelterdocker',
-        'USER': 'postgres',
-        'PASSWORD': 'mysecretpassword',
+        'NAME': os.getenv("NAME_POSTGRES"),
+        'USER': os.getenv("USER_POSTGRES"),
+        'PASSWORD': os.getenv("PASSWORD_POSTGRES"),
         'HOST': 'db'
     }
 }
